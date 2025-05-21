@@ -24,6 +24,7 @@
         body {
             color: var(--text-color);
             line-height: 1.6;
+            background-color: #f8f9fa;
         }
         
         a {
@@ -47,6 +48,8 @@
             color: var(--white);
             padding: 80px 0 40px;
             text-align: center;
+            background-image: linear-gradient(135deg, #0366d6 0%, #2979ff 100%);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
         .profile-img {
@@ -342,8 +345,8 @@
     <header>
         <div class="container">
             <img src="pp.jpg" alt="Profile Photo" class="profile-img">
-            <h1>Md. Touhidul Hasan</h1>
-            <p class="tagline">Computer Science Engineer </p>
+            <h1>MD. TOUHIDUL HASAN</h1>
+            <p class="tagline">Computer Science & Engineering Graduate | ML/DL Specialist</p>
             <div class="contact-info">
                 <a href="mailto:hasan15-14552@diu.edu.bd">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
@@ -370,6 +373,12 @@
                     </svg>
                     Lalkuthi, Mirpur 1, Dhaka
                 </a>
+                <a href="#" class="portfolio-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                        <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+                    </svg>
+                    Portfolio Website
+                </a>
             </div>
         </div>
     </header>
@@ -392,6 +401,8 @@
                     <div class="skill-list">
                         <span class="skill-item">Python</span>
                         <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">C</span>
+                        <span class="skill-item">C++</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -410,6 +421,17 @@
                         <span class="skill-item">Visual Studio Code</span>
                         <span class="skill-item">TensorFlow</span>
                         <span class="skill-item">scikit-learn</span>
+                        <span class="skill-item">Flask</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Research Areas</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Machine Learning</span>
+                        <span class="skill-item">Deep Learning</span>
+                        <span class="skill-item">Computer Vision</span>
+                        <span class="skill-item">IoT</span>
+                        <span class="skill-item">NLP</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -437,38 +459,83 @@
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    
-                    <div class="project-content">
-                        <h3 class="project-title">Educational Platform</h3>
-                        <p>A comprehensive platform for assignment submissions, grade management, and resource sharing. This solution helps educators and students manage their academic workflow more efficiently.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    
+
                     <div class="project-content">
                         <h3 class="project-title">Student Behavior Analytics</h3>
-                        <p>An ML/DL-based system to analyze student behavior and provide insights. Includes a user-friendly interface built with Flask for data visualization and interpretation.</p>
+                        <p>Built with Python and Flask, this ML/DL-based system analyzes student NLP base data to offer useful insights through visual dashboards.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Machine Learning</span>
                             <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">Data Visualization</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">NLP</span>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    
+
                     <div class="project-content">
-                        <h3 class="project-title">NLP-powered Analysis System</h3>
-                        <p>Final year project focused on natural language processing for data analysis and processing. Developed sophisticated algorithms for text understanding and information extraction.</p>
+                        <h3 class="project-title">Avocado Leaf Disease Prediction</h3>
+                        <p>Trained a model using Machine Learning and Deep Learning to detect diseases in avocado leaves from images with high accuracy.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Deep Learning</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">Image Processing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+
+                    <div class="project-content">
+                        <h3 class="project-title">Tour Group BD Website</h3>
+                        <p>Designed a responsive travel website for a tour group using HTML, CSS, and JavaScript to showcase packages and handle bookings.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Responsive Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+
+                    <div class="project-content">
+                        <h3 class="project-title">Assignment Management System</h3>
+                        <p>A web app for submitting assignments, managing grades, and sharing resources using PHP, JavaScript, and MySQL.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Web Development</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+
+                    <div class="project-content">
+                        <h3 class="project-title">School Management System</h3>
+                        <p>Created a front-end school management dashboard using HTML, CSS, and JavaScript for managing classes, results, and notices.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">UI/UX Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Portfolio Website</h3>
+                        <p>A personal online portfolio built with HTML, CSS, and JavaScript to display projects and contact details.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Web Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div></span>
                             <span class="tech-tag">Deep Learning</span>
                         </div>
                     </div>
