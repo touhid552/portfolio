@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>MD. Touhidul Hasan — Full-Stack Developer &amp; AI Engineer</title>
+<title>MD. Touhidul Hasan — Web Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
- 
+
   :root{
     --paper:#faf8f3;
     --paper-alt:#f2efe6;
@@ -23,8 +23,26 @@
     --accent-soft2:rgba(47,93,80,0.14);
     --gold:#a9793f;
     --gold-soft:rgba(169,121,63,0.1);
+    color-scheme: light;
   }
- 
+
+  [data-theme="dark"]{
+    --paper:#14151a;
+    --paper-alt:#191b21;
+    --card:#1d1f26;
+    --ink:#f1efe8;
+    --ink-soft:#b8b9c2;
+    --muted:#75767f;
+    --line:#2b2d35;
+    --line-strong:#383a44;
+    --accent:#5fae97;
+    --accent-soft:rgba(95,174,151,0.1);
+    --accent-soft2:rgba(95,174,151,0.18);
+    --gold:#d3a15f;
+    --gold-soft:rgba(211,161,95,0.12);
+    color-scheme: dark;
+  }
+
   html{scroll-behavior:smooth;}
   body{
     background:var(--paper);
@@ -33,13 +51,14 @@
     font-weight:400;
     line-height:1.5;
     -webkit-font-smoothing:antialiased;
+    transition:background .3s ease,color .3s ease;
   }
- 
+
   a{color:inherit;}
   ::selection{background:var(--accent-soft2);color:var(--ink);}
- 
+
   .mono{font-family:'JetBrains Mono',monospace;}
- 
+
   /* ===== NAV ===== */
   nav{
     position:fixed;top:0;left:0;right:0;z-index:500;
@@ -54,12 +73,15 @@
     backdrop-filter:blur(16px);
     border-bottom:1px solid var(--line);
   }
+  [data-theme="dark"] nav.scrolled{
+    background:rgba(20,21,26,0.85);
+  }
   .nav-logo{
     font-family:'Fraunces',serif;font-weight:500;font-size:1.15rem;
     letter-spacing:-0.01em;text-decoration:none;color:var(--ink);
   }
   .nav-logo em{color:var(--accent);font-style:italic;}
-  .nav-links{display:flex;gap:34px;list-style:none;align-items:center;}
+  .nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
   .nav-links a{
     text-decoration:none;color:var(--ink-soft);
     font-family:'JetBrains Mono',monospace;font-size:0.72rem;
@@ -79,7 +101,21 @@
     transition:background .2s,color .2s,border-color .2s;
   }
   .nav-hire:hover{background:var(--ink);color:var(--paper)!important;}
- 
+
+  /* ===== THEME TOGGLE ===== */
+  .theme-toggle{
+    width:38px;height:38px;border-radius:2px;
+    border:1px solid var(--line-strong);background:var(--card);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;transition:border-color .2s,transform .2s;
+    flex-shrink:0;
+  }
+  .theme-toggle:hover{border-color:var(--accent);transform:translateY(-1px);}
+  .theme-toggle svg{width:17px;height:17px;color:var(--ink);}
+  .theme-toggle .icon-sun{display:none;}
+  [data-theme="dark"] .theme-toggle .icon-sun{display:block;}
+  [data-theme="dark"] .theme-toggle .icon-moon{display:none;}
+
   /* ===== HERO ===== */
   #hero{
     min-height:100vh;
@@ -92,7 +128,7 @@
     position:absolute;top:132px;left:64px;right:64px;height:1px;
     background:var(--line);
   }
- 
+
   .eyebrow-tag{
     display:inline-flex;align-items:center;gap:9px;
     font-family:'JetBrains Mono',monospace;font-size:0.72rem;
@@ -102,7 +138,7 @@
     opacity:0;animation:fadeUp .7s .1s ease forwards;
   }
   .eyebrow-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
- 
+
   .hero-name{
     font-family:'Fraunces',serif;font-weight:400;
     font-size:clamp(2.7rem,5.4vw,4.6rem);
@@ -111,7 +147,7 @@
     opacity:0;animation:fadeUp .7s .18s ease forwards;
   }
   .hero-name .last{font-style:italic;font-weight:400;color:var(--accent);}
- 
+
   .hero-role{
     font-family:'JetBrains Mono',monospace;font-size:0.92rem;
     color:var(--ink-soft);letter-spacing:0.01em;
@@ -119,14 +155,14 @@
     opacity:0;animation:fadeUp .7s .26s ease forwards;
   }
   .hero-role .sep{color:var(--line-strong);margin:0 8px;}
- 
+
   .hero-desc{
     font-size:1.06rem;color:var(--ink-soft);line-height:1.85;
     max-width:520px;margin-bottom:38px;font-weight:300;
     opacity:0;animation:fadeUp .7s .34s ease forwards;
   }
   .hero-desc strong{color:var(--ink);font-weight:600;}
- 
+
   .hero-ctas{
     display:flex;gap:14px;flex-wrap:wrap;margin-bottom:54px;
     opacity:0;animation:fadeUp .7s .42s ease forwards;
@@ -147,7 +183,7 @@
     transition:border-color .2s,transform .2s,background .2s;
   }
   .btn-ghost:hover{border-color:var(--ink);background:var(--card);transform:translateY(-2px);}
- 
+
   .hero-tech{
     display:flex;gap:8px;flex-wrap:wrap;
     opacity:0;animation:fadeUp .7s .5s ease forwards;
@@ -159,10 +195,10 @@
     transition:border-color .2s,color .2s;
   }
   .tech-pill:hover{border-color:var(--accent);color:var(--accent);}
- 
+
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
   @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
- 
+
   /* Dossier card */
   .dossier{
     background:var(--card);border:1px solid var(--line);
@@ -176,7 +212,7 @@
   }
   .dossier-top h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.12rem;margin-bottom:3px;}
   .dossier-top p{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);letter-spacing:0.03em;}
- 
+
   .dossier-field{
     display:flex;justify-content:space-between;align-items:baseline;
     padding:13px 26px;border-bottom:1px solid var(--line);gap:12px;
@@ -189,7 +225,7 @@
   }
   .dossier-field .value{font-size:0.85rem;font-weight:500;color:var(--ink);text-align:right;}
   .dossier-field .value.accent{color:var(--accent);}
- 
+
   /* ===== SECTION COMMON ===== */
   section{padding:100px 64px;position:relative;}
   #about,#certs{background:var(--paper-alt);}
@@ -205,13 +241,13 @@
     margin-bottom:58px;letter-spacing:-0.015em;color:var(--ink);max-width:720px;
   }
   .section-heading em{font-style:italic;color:var(--accent);font-weight:400;}
- 
+
   /* ===== ABOUT ===== */
   .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:start;}
   .about-text p{font-size:1rem;line-height:1.9;color:var(--ink-soft);margin-bottom:18px;font-weight:300;}
   .about-text strong{color:var(--ink);font-weight:600;}
   .about-text .hl{color:var(--accent);font-weight:500;}
- 
+
   .edu-stack{display:flex;flex-direction:column;}
   .edu-card{
     background:var(--card);border:1px solid var(--line);
@@ -223,7 +259,7 @@
   .edu-degree{font-family:'Fraunces',serif;font-weight:500;font-size:0.98rem;margin-bottom:4px;}
   .edu-uni{font-size:0.83rem;color:var(--accent);margin-bottom:6px;font-weight:500;}
   .edu-meta{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);}
- 
+
   /* ===== SKILLS ===== */
   .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
   .skill-card{background:var(--card);padding:30px 28px;transition:background .2s;}
@@ -240,7 +276,7 @@
   }
   .skill-card:hover .tag{background:var(--card);}
   .tag:hover{border-color:var(--accent);color:var(--accent);}
- 
+
   /* ===== PROJECTS ===== */
   .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
   .proj-card{background:var(--card);padding:28px 26px;display:flex;flex-direction:column;transition:background .2s;}
@@ -256,7 +292,7 @@
     font-family:'JetBrains Mono',monospace;font-size:0.66rem;font-weight:400;
     padding:4px 9px;border:1px solid var(--line);color:var(--muted);border-radius:2px;
   }
- 
+
   /* ===== CERTIFICATIONS ===== */
   .certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;}
   .cert-card{
@@ -273,7 +309,7 @@
   .cert-icon-wrap svg{width:17px;height:17px;}
   .cert-info strong{font-family:'Fraunces',serif;font-weight:500;font-size:0.92rem;display:block;margin-bottom:2px;}
   .cert-info span{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);}
- 
+
   /* ===== CONTACT ===== */
   .contact-inner{max-width:680px;}
   .contact-sub{font-size:1.02rem;color:var(--ink-soft);line-height:1.85;margin-bottom:46px;font-weight:300;}
@@ -288,7 +324,7 @@
   .contact-item svg{width:17px;height:17px;color:var(--accent);flex-shrink:0;}
   .contact-loc{color:var(--ink-soft)!important;cursor:default;}
   .contact-loc:hover{background:var(--card)!important;color:var(--ink-soft)!important;}
- 
+
   /* ===== FOOTER ===== */
   footer{
     padding:26px 64px;border-top:1px solid var(--line);
@@ -296,23 +332,23 @@
     font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--muted);
   }
   footer .f-logo{font-family:'Fraunces',serif;font-weight:500;font-size:0.95rem;color:var(--accent);}
- 
+
   /* ===== SCROLL REVEAL ===== */
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease;}
   .reveal.visible{opacity:1;transform:translateY(0);}
   .reveal-d1{transition-delay:.08s;}
   .reveal-d2{transition-delay:.16s;}
- 
+
   @media(prefers-reduced-motion:reduce){
     *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
   }
- 
+
   /* ===== RESPONSIVE ===== */
   @media(max-width:980px){
     nav{padding:18px 24px;}
     nav.scrolled{padding:13px 24px;}
-    .nav-links{gap:20px;}
-    .nav-links a:not(.nav-hire){display:none;}
+    .nav-links{gap:16px;}
+    .nav-links a:not(.nav-hire):not(.theme-toggle){display:none;}
     #hero{grid-template-columns:1fr;padding:110px 24px 60px;gap:40px;}
     .hero-rule{left:24px;right:24px;top:96px;}
     .dossier{max-width:280px;justify-self:start;}
@@ -324,7 +360,7 @@
 </style>
 </head>
 <body>
- 
+
 <nav id="nav">
   <a href="#hero" class="nav-logo">Touhidul<em>.</em></a>
   <ul class="nav-links">
@@ -334,26 +370,32 @@
     <li><a href="#certs">Honors</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="mailto:hasan15-14552@diu.edu.bd" class="nav-hire">Hire Me</a></li>
+    <li>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </li>
   </ul>
 </nav>
- 
+
 <!-- ===== HERO ===== -->
 <section id="hero">
   <div class="hero-rule"></div>
- 
+
   <div class="hero-left">
     <div class="eyebrow-tag"><span class="dot"></span>Open to full-time roles</div>
- 
+
     <h1 class="hero-name">MD. Touhidul<br><span class="last">Hasan</span></h1>
- 
+
    <div class="hero-role">Web Developer<span class="sep">/</span>DevOps<span class="sep">/</span>AI-ML Enthusiast<span class="sep">/</span>Dhaka, Bangladesh</div>
- 
+
     <p class="hero-desc">
       I build clean, production-ready web applications where <strong>solid engineering meets AI/ML</strong>.
       My focus spans full-stack development and DevOps, paired with real-world deployment —
       from responsive interfaces to trained models running in production.
     </p>
- 
+
     <div class="hero-ctas">
       <a href="#projects" class="btn-fill">
         View Projects
@@ -364,7 +406,7 @@
         GitHub
       </a>
     </div>
- 
+
     <div class="hero-tech">
       <div class="tech-pill">Python</div>
       <div class="tech-pill">React.js</div>
@@ -374,7 +416,7 @@
       <div class="tech-pill">Machine Learning</div>
     </div>
   </div>
- 
+
   <div class="dossier">
     <div class="dossier-top">
       <img src="pp.jpeg" alt="MD. Touhidul Hasan" class="dossier-photo" />
@@ -388,7 +430,7 @@
     <div class="dossier-field"><span class="label">Experience</span><span class="value">2+ years</span></div>
   </div>
 </section>
- 
+
 <!-- ===== ABOUT ===== -->
 <section id="about">
   <div class="section-eyebrow">About Me</div>
@@ -435,7 +477,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ===== SKILLS ===== -->
 <section id="skills">
   <div class="section-eyebrow">Technical Skills</div>
@@ -489,86 +531,86 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ===== PROJECTS ===== -->
 <section id="projects">
   <div class="section-eyebrow">Projects</div>
   <h2 class="section-heading">Selected <em>work</em></h2>
   <div class="projects-grid">
- 
+
     <div class="proj-card reveal">
       <span class="proj-badge">Web App</span>
       <div class="proj-name">FixIt Now — Service Provider App</div>
       <div class="proj-desc">Platform connecting users with home maintenance providers for AC repair, electrical work, plumbing and more. Full booking and provider management system.</div>
       <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">Node.js</span><span class="proj-tag">MySQL</span></div>
     </div>
- 
+
     <div class="proj-card reveal reveal-d1">
       <span class="proj-badge">AI / ML</span>
       <div class="proj-name">Student Behavior Analytics</div>
       <div class="proj-desc">ML/DL-based system built with Python and Flask that analyzes student NLP data to deliver actionable insights through interactive visual dashboards.</div>
       <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Flask</span><span class="proj-tag">NLP</span><span class="proj-tag">Deep Learning</span></div>
     </div>
- 
+
     <div class="proj-card reveal reveal-d2">
       <span class="proj-badge">Computer Vision</span>
       <div class="proj-name">Avocado Leaf Disease Prediction</div>
       <div class="proj-desc">Trained an ML/DL computer vision model to detect diseases in avocado leaves from images with high accuracy using TensorFlow.</div>
       <div class="proj-tags"><span class="proj-tag">TensorFlow</span><span class="proj-tag">Python</span><span class="proj-tag">CNN</span></div>
     </div>
- 
+
     <div class="proj-card reveal">
       <span class="proj-badge">Web App</span>
       <div class="proj-name">Tour Group BD Website</div>
       <div class="proj-desc">Responsive travel website for a tour group showcasing travel packages and handling bookings with a clean, modern interface.</div>
       <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
     </div>
- 
+
     <div class="proj-card reveal reveal-d1">
       <span class="proj-badge">Web App</span>
       <div class="proj-name">Assignment Management System</div>
       <div class="proj-desc">Web app for submitting assignments, managing grades, and sharing learning resources between students and teachers.</div>
       <div class="proj-tags"><span class="proj-tag">PHP</span><span class="proj-tag">JavaScript</span><span class="proj-tag">MySQL</span></div>
     </div>
- 
+
     <div class="proj-card reveal reveal-d2">
       <span class="proj-badge">Web App</span>
       <div class="proj-name">School Management System</div>
       <div class="proj-desc">Front-end school management dashboard for managing classes, student results, and school notices with a clean and intuitive interface.</div>
       <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
     </div>
- 
+
     <div class="proj-card reveal">
       <span class="proj-badge">Desktop App</span>
       <div class="proj-name">Hospital Management System</div>
       <div class="proj-desc">Comprehensive desktop app with patient registration, appointment scheduling, medical records, and billing — built with Java Swing and MySQL for secure hospital operations.</div>
       <div class="proj-tags"><span class="proj-tag">Java Swing</span><span class="proj-tag">MySQL</span><span class="proj-tag">OOP</span></div>
     </div>
- 
+
     <div class="proj-card reveal reveal-d1">
       <span class="proj-badge">Desktop App</span>
       <div class="proj-name">Basic Calculator — Java Swing</div>
       <div class="proj-desc">Clean, user-friendly desktop calculator for basic arithmetic operations built with Java Swing, focusing on a simple and accessible GUI experience.</div>
       <div class="proj-tags"><span class="proj-tag">Java</span><span class="proj-tag">Java Swing</span><span class="proj-tag">GUI</span></div>
     </div>
- 
+
     <div class="proj-card reveal reveal-d2">
       <span class="proj-badge">Web App</span>
       <div class="proj-name">Mess Meal Manager App</div>
       <div class="proj-desc">Tool for managing meal expenses in shared living — calculates balances, average meal rates, and individual contributions with PDF export support.</div>
       <div class="proj-tags"><span class="proj-tag">React.js</span><span class="proj-tag">Tailwind CSS</span><span class="proj-tag">PDF Export</span></div>
     </div>
- 
+
     <div class="proj-card reveal">
       <span class="proj-badge">Clone / UI</span>
       <div class="proj-name">Facebook Landing Page Clone</div>
       <div class="proj-desc">Pixel-perfect responsive clone of Facebook's landing page with meticulous attention to layout, colors, and UI detail across all device sizes.</div>
       <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
     </div>
- 
+
   </div>
 </section>
- 
+
 <!-- ===== CERTIFICATIONS ===== -->
 <section id="certs">
   <div class="section-eyebrow">Certifications &amp; Honors</div>
@@ -596,7 +638,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="contact-inner">
@@ -630,20 +672,42 @@
     </a>
   </div>
 </section>
- 
+
 <!-- ===== FOOTER ===== -->
 <footer>
   <span class="f-logo">Touhidul.</span>
   <span>© 2025 MD. Touhidul Hasan · Dhaka, Bangladesh</span>
   <span>Designed &amp; built independently</span>
 </footer>
- 
+
 <script>
+  // Theme handling: respects saved preference, falls back to system setting
+  (function() {
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initial = saved || (systemDark ? 'dark' : 'light');
+    if (initial === 'dark') root.setAttribute('data-theme', 'dark');
+  })();
+
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
+    const root = document.documentElement;
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      root.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+    } else {
+      root.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
   });
- 
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -653,7 +717,7 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
- 
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
